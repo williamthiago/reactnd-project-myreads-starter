@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class Search extends Component {
   render() {
@@ -14,8 +14,8 @@ class Search extends Component {
           <ol className="books-grid"></ol>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Search;
+export default Search
