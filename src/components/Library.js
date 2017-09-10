@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import Shelf from './Shelf'
 import shelfType from '../enums/shelfType'
 
-const Library = ({ books, loading }) => {
+const Library = ({ books, loading, onChangeShelf }) => {
   const shelves = Object.keys(shelfType).map(type => {
     let name = shelfType[type]
     let booksInShelf = books.filter(book => book.shelf === type)
@@ -22,7 +22,11 @@ const Library = ({ books, loading }) => {
             <p>Loading...</p>
           }
           {!loading && shelves.map(shelf => (
-            <Shelf key={shelf.type} title={shelf.name} books={shelf.booksInShelf} />
+            <Shelf 
+              key={shelf.type} 
+              title={shelf.name} 
+              books={shelf.booksInShelf}
+              onChangeShelf={onChangeShelf} />
           ))}
         </div>
       </div>

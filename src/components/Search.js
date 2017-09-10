@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { Debounce } from 'react-throttle';
+import { Debounce } from 'react-throttle'
 
 import * as BooksAPI from '../BooksAPI'
 import Books from './Books'
@@ -19,7 +19,7 @@ class Search extends Component {
       return
     }
 
-    this.setState({ loading: true });
+    this.setState({ loading: true })
 
     let result = await BooksAPI.search(query).then(this.parseSearch.bind(this))
 
@@ -41,6 +41,7 @@ class Search extends Component {
 
   render() {
     const { result: books, query, loading } = this.state
+    const { onChangeShelf } = this.props
 
     return (
       <div className="search-books">
@@ -64,7 +65,7 @@ class Search extends Component {
             <p>No books found for '{query}'.</p>
           }
           {!loading && books.length > 0 && 
-            <Books books={books} />
+            <Books books={books} onChangeShelf={onChangeShelf} />
           }
         </div>
       </div>

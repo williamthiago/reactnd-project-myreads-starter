@@ -20,16 +20,34 @@ class App extends Component {
     this.setState({ myBooks, loading: false })
   }
 
+  async addBookToShelf(book, shelf) {
+    let { myBooks } = this.state
+    let myBook = myBooks.find(myBook => myBook.id === book.id);
+
+    let bookToUpdate = myBook || book
+    bookToUpdate.shelf = shelf
+
+    if (!myBook) {
+      myBooks = myBooks.concat(bookToUpdate)
+    }
+
+    this.setState({
+      myBooks
+    })
+
+    await BooksAPI.update(bookToUpdate, shelf)
+  }
+
   render() {
     const { myBooks, loading } = this.state
     return (
       <div className="app">
         <Switch>
             <Route exact path="/" render={() => (
-              <Library books={myBooks} loading={loading} />
+              <Library books={myBooks} loading={loading} onChangeShelf={this.addBookToShelf.bind(this)} />
             )} />
             <Route path="/search" render={() => (
-              <Search books={myBooks} />
+              <Search books={myBooks} onChangeShelf={this.addBookToShelf.bind(this)} />
             )} />
         </Switch>
       </div>

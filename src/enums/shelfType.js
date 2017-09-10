@@ -4,4 +4,4 @@ const shelfType = {
   "read": "Read"
 }
 
-export default shelfType;
+export default shelfType

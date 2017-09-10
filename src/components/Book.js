@@ -11,8 +11,8 @@ const coverStyleDefault = {
   backgroundPosition: 'center'
 }
 
-const Book = ({ book }) => {
-  let { authors, title, shelf, imageLinks } = book;
+const Book = ({ book, onChangeShelf }) => {
+  let { authors, title, shelf, imageLinks } = book
   
   authors = authors ? authors.join('; ') : 'Author Unknow'
   
@@ -20,13 +20,18 @@ const Book = ({ book }) => {
     ...coverStyleDefault,
     backgroundImage: `url(${imageLinks ? imageLinks.thumbnail : noCover})`
   }
+
+  const onChange = (event) => {
+    let shelf = event.target.value
+    onChangeShelf && onChangeShelf(book, shelf)
+  } 
   
   return (
     <div className="book">
       <div className="book-top">
         <div className="book-cover" style={coverStyle}></div>
         <div className="book-shelf-changer">
-          <select defaultValue={shelf}>
+          <select defaultValue={shelf} onChange={onChange} >
             <option value="none" disabled>Move to...</option>
             {Object.keys(shelfType).map(type => (
               <option key={type} value={type}>{shelfType[type]}</option>
