@@ -21,10 +21,22 @@ class Search extends Component {
 
     this.setState({ loading: true });
 
-    let result = await BooksAPI.search(query)
-    result = (result instanceof Array) ? result : []
+    let result = await BooksAPI.search(query).then(this.parseSearch.bind(this))
 
     this.setState({ result, loading: false })
+  }
+
+  parseSearch(result) {
+    result = (result instanceof Array) ? result : []
+    const { books } = this.props
+
+    return result.map(resultBook => {
+      let bookInMyBooks = books.find(book => book.id === resultBook.id)
+      return {
+        ...resultBook,
+        shelf: bookInMyBooks ? bookInMyBooks.shelf : 'none'
+      }
+    })
   }
 
   render() {
