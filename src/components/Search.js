@@ -7,21 +7,28 @@ import Books from './Books'
 
 class Search extends Component {
   state = {
-    result: []
+    result: [],
+    loading: false,
+    query: ''
   }
 
   async handleSearch(query) {
+    this.setState({ query })
+
     if (!query) {
       return
     }
 
-    let result = await BooksAPI.search(query, 10)
+    this.setState({ loading: true });
 
-    this.setState({ result })
+    let result = await BooksAPI.search(query)
+    result = (result instanceof Array) ? result : []
+
+    this.setState({ result, loading: false })
   }
 
   render() {
-    const { result: books } = this.state
+    const { result: books, query, loading } = this.state
 
     return (
       <div className="search-books">
@@ -38,7 +45,15 @@ class Search extends Component {
           </div>
         </div>
         <div className="search-books-results">
-          <Books books={books} />
+          {loading && 
+            <p>Loading...</p>
+          }
+          {!loading && query.length > 0 && books.length === 0 && 
+            <p>No books found for '{query}'.</p>
+          }
+          {!loading && books.length > 0 && 
+            <Books books={books} />
+          }
         </div>
       </div>
     )

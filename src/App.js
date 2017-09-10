@@ -8,21 +8,25 @@ import Library from './components/Library'
 
 class App extends Component {
   state = {
-    myBooks: []
+    myBooks: [],
+    loading: false
   }
 
   async componentDidMount() {
+    this.setState({ loading: true })
+
     const myBooks = await BooksAPI.getAll()
-    this.setState({ myBooks })
+
+    this.setState({ myBooks, loading: false })
   }
 
   render() {
-    const { myBooks } = this.state
+    const { myBooks, loading } = this.state
     return (
       <div className="app">
         <Switch>
             <Route exact path="/" render={() => (
-              <Library books={myBooks} />
+              <Library books={myBooks} loading={loading} />
             )} />
             <Route path="/search" render={() => (
               <Search books={myBooks} />
