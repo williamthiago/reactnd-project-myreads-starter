@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Switch, Route } from 'react-router-dom'
 // import * as BooksAPI from './BooksAPI'
 import './App.css'
 
@@ -9,11 +10,10 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        {false ? (
-          <Search />
-        ) : (
-          <Library />
-        )}
+        <Switch>
+            <Route exact path="/" component={Library} />
+            <Route path="/search" component={Search} />
+        </Switch>
       </div>
     )
   }
