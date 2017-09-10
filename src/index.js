@@ -5,8 +5,10 @@ import { BrowserRouter } from 'react-router-dom'
 import BookApp from './App'
 import './index.css'
 
+const baseName = process.env.NODE_ENV === 'development' ? '/' : '/udacity-myreads' 
+
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename={baseName}>
     <BookApp />
   </BrowserRouter>, 
   document.getElementById('root'))

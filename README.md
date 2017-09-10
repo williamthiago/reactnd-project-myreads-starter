@@ -1,15 +1,19 @@
-# Udacity MyReads
+# Udacity MyReads [![Build Status](https://travis-ci.org/williamthiago/udacity-myreads.svg?branch=master)](https://travis-ci.org/williamthiago/udacity-myreads)
 
 This project is an implementation for the final assessment project for Udacity's React Fundamentals course.
 
-It has a backend server to store books and shelves provided by Udacity. The API methods can be viewed at [reactnd-project-myreads-starter](https://github.com/udacity/reactnd-project-myreads-starter)
+It has a backend server to store books and shelves provided by Udacity [reactnd-project-myreads-starter](https://github.com/udacity/reactnd-project-myreads-starter).
 
 ## TL;DR
 
-To get started developing right away:
+- Try out the MyReads example running in https://williamthiago.github.io/udacity-myreads/ 
 
-* Install all project dependencies with `npm install`
-* Start the development server with `npm start`
+or...
+
+- Clone the project, and use the following steps:
+
+  * Install all project dependencies with `npm install`
+  * Start the development server with `npm start`
 
 ## Important
 The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md).
@@ -19,6 +23,7 @@ The backend API uses a fixed set of cached search results and is limited to a pa
 The requirements for this assessment are listed on [MyReads: Project Specifications](https://review.udacity.com/#!/rubrics/918/view):
 
 #### Application Setup
+
 - [x] Is the application easy to install and start?
 - [x] Does the application include README with clear installation and launch instructions?
 
@@ -43,3 +48,10 @@ The requirements for this assessment are listed on [MyReads: Project Specificati
 
 - [x] Does the project code handle state management appropriately?
 - [x] Is JSX formatted properly?
+
+## Extras
+
+The following requirements were not required, but were added to the project:
+
+- [x] Continuous Integration using Travis
+- [x] Continuous Delivery to Github Pages
