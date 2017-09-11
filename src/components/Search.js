@@ -50,7 +50,8 @@ class Search extends Component {
           <div className="search-books-input-wrapper">
             <Debounce time="300" handler="onChange">
               <input 
-                type="text" 
+                type="text"
+                autoFocus 
                 placeholder="Search by title or author"
                 onChange={(event) => this.handleSearch(event.target.value)}
               />
