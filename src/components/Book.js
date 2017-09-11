@@ -1,25 +1,14 @@
 import React from 'react'
 
 import shelfType from '../enums/shelfType'
-import noCover from '../icons/no-cover.svg'
-
-const coverStyleDefault = {
-  width: 128,
-  height: 178,
-  backgroundSize: '128px 178px',
-  backgroundRepeat: 'no-repeat',
-  backgroundPosition: 'center'
-}
+import BookCover from './BookCover'
+import noCover from '../icons/no-cover.png'
 
 const Book = ({ book, onChangeShelf }) => {
   let { authors, title, shelf, imageLinks } = book
-  
   authors = authors ? authors.join('; ') : 'Author Unknow'
   
-  let coverStyle = {
-    ...coverStyleDefault,
-    backgroundImage: `url(${imageLinks ? imageLinks.thumbnail : noCover})`
-  }
+  let backgroundImage = imageLinks ? imageLinks.thumbnail : noCover
 
   const onChange = (event) => {
     let shelf = event.target.value
@@ -29,7 +18,7 @@ const Book = ({ book, onChangeShelf }) => {
   return (
     <div className="book">
       <div className="book-top">
-        <div className="book-cover" style={coverStyle}></div>
+        <BookCover image={backgroundImage} />
         <div className="book-shelf-changer">
           <select defaultValue={shelf} onChange={onChange} >
             <option value="none" disabled>Move to...</option>

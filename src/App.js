@@ -22,7 +22,7 @@ class App extends Component {
 
   async addBookToShelf(book, shelf) {
     let { myBooks } = this.state
-    let myBook = myBooks.find(myBook => myBook.id === book.id);
+    let myBook = myBooks.find(myBook => myBook.id === book.id)
 
     let bookToUpdate = myBook || book
     bookToUpdate.shelf = shelf
