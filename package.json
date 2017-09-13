@@ -1,6 +1,7 @@
 {
   "homepage": "https://williamthiago.github.io/udacity-myreads/",
   "dependencies": {
+    "enzyme-to-json": "^1.5.1",
     "eslint": "^3.19.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
@@ -11,10 +12,20 @@
     "react-test-renderer": "^15.6.1",
     "react-throttle": "^0.3.0"
   },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js}",
+      "!src/index.js"
+    ]
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "test:coverage": "npm test -- --coverage",
     "eject": "react-scripts eject"
   }
 }

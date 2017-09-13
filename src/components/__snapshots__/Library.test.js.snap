@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Library without books 1`] = `
+<div
+  className="list-books"
+>
+  <div
+    className="list-books-title"
+  >
+    <h1>
+      MyReads
+    </h1>
+  </div>
+  <div
+    className="list-books-content"
+  >
+    <div>
+      <Shelf
+        books={Array []}
+        onChangeShelf={[Function]}
+        title="Currently Reading"
+      />
+      <Shelf
+        books={Array []}
+        onChangeShelf={[Function]}
+        title="Want To Read"
+      />
+      <Shelf
+        books={Array []}
+        onChangeShelf={[Function]}
+        title="Read"
+      />
+    </div>
+  </div>
+  <div
+    className="open-search"
+  >
+    <Link
+      replace={false}
+      to="/search"
+    >
+      Add a book
+    </Link>
+  </div>
+</div>
+`;

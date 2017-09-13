@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Search without crashing 1`] = `
+<div
+  className="search-books"
+>
+  <div
+    className="search-books-bar"
+  >
+    <Link
+      className="close-search"
+      replace={false}
+      to="/"
+    >
+      Close
+    </Link>
+    <div
+      className="search-books-input-wrapper"
+    >
+      <Debounce
+        handler="onChange"
+        handlers={Array []}
+        time="300"
+      >
+        <input
+          autoFocus={true}
+          onChange={[Function]}
+          placeholder="Search by title or author"
+          type="text"
+        />
+      </Debounce>
+    </div>
+  </div>
+  <div
+    className="search-books-results"
+  />
+</div>
+`;

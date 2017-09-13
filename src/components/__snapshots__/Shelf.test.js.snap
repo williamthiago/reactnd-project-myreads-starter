@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Shelf without books 1`] = `
+<div
+  className="bookshelf"
+>
+  <h2
+    className="bookshelf-title"
+  >
+    Shelf Test
+  </h2>
+  <div
+    className="bookshelf-books"
+  >
+    <div>
+      <p>
+        This bookshelf has no books yet!
+      </p>
+      <Link
+        replace={false}
+        to="/search"
+      >
+        Go search for more books!
+      </Link>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders BookCover without crashing 1`] = `
+<div
+  className="book-cover"
+  style={
+    Object {
+      "backgroundImage": "url()",
+      "backgroundSize": "cover",
+      "height": 0,
+      "width": 0,
+    }
+  }
+/>
+`;

@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders Book without crashing 1`] = `
+<div
+  className="book"
+>
+  <div
+    className="book-top"
+  >
+    <BookCover
+      image="http://books.google.com/books/content?id=evuwdDLfAyYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+    />
+    <div
+      className="book-shelf-changer"
+    >
+      <select
+        defaultValue="wantToRead"
+        onChange={[Function]}
+      >
+        <option
+          disabled={true}
+          value="none"
+        >
+          Move to...
+        </option>
+        <option
+          value="currentlyReading"
+        >
+          Currently Reading
+        </option>
+        <option
+          value="wantToRead"
+        >
+          Want To Read
+        </option>
+        <option
+          value="read"
+        >
+          Read
+        </option>
+        <option
+          value="none"
+        >
+          None
+        </option>
+      </select>
+    </div>
+  </div>
+  <div
+    className="book-title"
+  >
+    The Cuckoo's Calling
+  </div>
+  <div
+    className="book-authors"
+  >
+    Robert Galbraith
+  </div>
+</div>
+`;
