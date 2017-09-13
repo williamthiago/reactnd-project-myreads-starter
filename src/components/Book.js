@@ -1,5 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
+import bookPropType from './bookPropType'
 import shelfType from '../enums/shelfType'
 import BookCover from './BookCover'
 import noCover from '../icons/no-cover.png'
@@ -33,6 +35,11 @@ const Book = ({ book, onChangeShelf }) => {
       <div className="book-authors">{authors}</div>
     </div>
   )
+}
+
+Book.propTypes = {
+  book: bookPropType.isRequired,
+  onChangeShelf: PropTypes.func.isRequired
 }
 
 export default Book

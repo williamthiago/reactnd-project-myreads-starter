@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
+import bookPropType from './bookPropType'
 import Shelf from './Shelf'
 import shelfType from '../enums/shelfType'
 
@@ -35,6 +37,12 @@ const Library = ({ books, loading, onChangeShelf }) => {
       </div>
     </div>
   )
+}
+
+Library.propTypes = {
+  books: PropTypes.arrayOf(bookPropType).isRequired,
+  onChangeShelf: PropTypes.func.isRequired,
+  loading: PropTypes.bool
 }
 
 export default Library
