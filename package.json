@@ -18,7 +18,8 @@
     ],
     "collectCoverageFrom": [
       "src/**/*.{js}",
-      "!src/index.js"
+      "!src/index.js",
+      "!src/BooksAPI.js"
     ]
   },
   "scripts": {

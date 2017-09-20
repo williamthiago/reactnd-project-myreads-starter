@@ -10,7 +10,7 @@ const Book = ({ book, onChangeShelf }) => {
   let { authors, title, shelf, imageLinks } = book
   authors = authors ? authors.join('; ') : 'Author Unknow'
   
-  let backgroundImage = imageLinks ? imageLinks.thumbnail : noCover
+  let backgroundImage = imageLinks && imageLinks.thumbnail ? imageLinks.thumbnail : noCover
 
   const onChange = (event) => {
     let shelf = event.target.value
