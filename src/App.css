@@ -11,10 +11,14 @@ body, .app {
 /* main page */
 
 .list-books-title {
+  position: fixed;
+  width: 100%;
+  z-index: 5;
   padding: 10px 0;
   background: #2e7c31;
   text-align: center;
 }
+
 .list-books-title h1 {
   font-weight: 400;
   margin: 0;
@@ -22,6 +26,7 @@ body, .app {
 }
 
 .list-books-content {
+  margin-top: 65px;
   padding: 0 0 80px;
   flex: 1;
 }
@@ -75,7 +80,6 @@ body, .app {
 }
 .search-books-input-wrapper {
   flex: 1;
-  background: #e9e;
 }
 .search-books-bar input {
   width: 100%;
@@ -171,4 +175,37 @@ body, .app {
   padding: 20px 10px 0;
   text-align: center;
   font-size: 0.8em;
+}
+
+/* Toast container */
+.toast-container {
+  z-index: 10;
+}
+
+
+html, body, .app {
+  min-height: 100%;
+  min-height: 100vh;
+}
+.app {
+  display: flex;
+  flex-direction: column;
+}
+
+.loading-overlay {
+  position: fixed;
+  z-index: 10;
+
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 60px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-element {
+  transform: scale(1.5);
 }

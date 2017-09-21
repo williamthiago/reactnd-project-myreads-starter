@@ -15,5 +15,14 @@ exports[`Renders App without crashing 1`] = `
       render={[Function]}
     />
   </Switch>
+  <SnackbarContainer
+    autohide={true}
+    autohideTimeout={3000}
+    onDismiss={[Function]}
+    toasts={Array []}
+    transitionEnterTimeout={300}
+    transitionLeaveTimeout={300}
+    transitionName="md-snackbar"
+  />
 </div>
 `;

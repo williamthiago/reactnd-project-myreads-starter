@@ -55,3 +55,11 @@ The following requirements were not required, but were added to the project:
 
 - [x] Continuous Integration using Travis
 - [x] Continuous Delivery to Github Pages
+- [x] PropTypes
+- [x] Image size detection
+- [x] No image replacement
+- [x] Code linter
+- [x] Toast notifications
+- [x] Tests (partly)
+- [x] Empty states
+- [x] Loading
