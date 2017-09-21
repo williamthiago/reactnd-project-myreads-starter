@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
 
-import bookPropType from './bookPropType'
+import { ShelfPropType } from '../validations/props'
 import Books from './Books'
 
 const Shelf = ({title, books, onChangeShelf}) => (
@@ -22,10 +21,6 @@ const Shelf = ({title, books, onChangeShelf}) => (
   </div>
 )
 
-Shelf.PropTypes = {
-  title: PropTypes.string.isRequired,
-  books: PropTypes.arrayOf(bookPropType).isRequired,
-  onChangeShelf: PropTypes.func.isRequired
-}
+Shelf.PropTypes = ShelfPropType
 
 export default Shelf

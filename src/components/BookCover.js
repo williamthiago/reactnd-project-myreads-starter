@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import { BookCoverPropType } from '../validations/props'
 
 const detectImageSize = (imageURL, maxHeight) => new Promise(resolve => {
   const image = new Image()
@@ -53,8 +53,7 @@ class BookCover extends Component {
   }
 }
 
-BookCover.propTypes = {
-  image: PropTypes.string.isRequired
-}
+
+BookCover.propTypes = BookCoverPropType
 
 export default BookCover

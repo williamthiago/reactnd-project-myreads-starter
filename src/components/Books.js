@@ -1,7 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-import bookPropType from './bookPropType'
+import { BooksPropType } from '../validations/props'
 import Book from './Book'
 
 const Books = ({ books, onChangeShelf }) => (
@@ -14,9 +13,6 @@ const Books = ({ books, onChangeShelf }) => (
   </ol>
 )
 
-Books.propTypes = {
-  books: PropTypes.arrayOf(bookPropType).isRequired,
-  onChangeShelf: PropTypes.func.isRequired
-}
+Books.propTypes = BooksPropType
 
 export default Books

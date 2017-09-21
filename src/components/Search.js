@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Debounce } from 'react-throttle'
-import PropTypes from 'prop-types'
 
-import bookPropType from './bookPropType'
+import { SearchPropType } from '../validations/props'
 import * as BooksAPI from '../BooksAPI'
 import Books from './Books'
 
@@ -76,9 +75,6 @@ class Search extends Component {
   }
 }
 
-Search.propTypes = {
-  books: PropTypes.arrayOf(bookPropType).isRequired,
-  onChangeShelf: PropTypes.func.isRequired
-}
+Search.propTypes = SearchPropType
 
 export default Search
