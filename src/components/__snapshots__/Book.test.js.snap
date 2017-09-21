@@ -11,39 +11,19 @@ exports[`Renders Book without crashing 1`] = `
       image="http://books.google.com/books/content?id=evuwdDLfAyYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
     />
     <div
-      className="book-shelf-changer"
+      className="book-tag want-to-read"
+      onClick={[Function]}
     >
-      <select
-        defaultValue="wantToRead"
-        onChange={[Function]}
+      <span
+        className="book-tag-label"
       >
-        <option
-          disabled={true}
-          value="none"
-        >
-          Move to...
-        </option>
-        <option
-          value="currentlyReading"
-        >
-          Currently Reading
-        </option>
-        <option
-          value="wantToRead"
-        >
-          Want To Read
-        </option>
-        <option
-          value="read"
-        >
-          Read
-        </option>
-        <option
-          value="none"
-        >
-          None
-        </option>
-      </select>
+        Want To Read
+      </span>
+      <span
+        className="book-options-toggle"
+      >
+        …
+      </span>
     </div>
   </div>
   <div

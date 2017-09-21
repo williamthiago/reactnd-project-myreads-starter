@@ -6,11 +6,13 @@ import Shelf from './Shelf'
 import shelfType from '../enums/shelfType'
 
 const Library = ({ books, loading, onChangeShelf }) => {
-  const shelves = Object.keys(shelfType).map(type => {
-    let name = shelfType[type]
-    let booksInShelf = books.filter(book => book.shelf === type)
-    return { type, name, booksInShelf }
-  })
+  const shelves = Object.keys(shelfType)
+    .filter(type => shelfType[type].isShelf)
+    .map(type => {
+      let name = shelfType[type].text
+      let booksInShelf = books.filter(book => book.shelf === type)
+      return { type, name, booksInShelf }
+    })
   
   return (
     <div className="list-books">

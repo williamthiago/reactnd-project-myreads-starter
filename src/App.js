@@ -68,31 +68,35 @@ class App extends Component {
       shelf: syncedShelves[book.id]
     })
 
-    this.setState(state => {
-      let allBooks = alreadyMine ? state.myBooks : [...state.myBooks, book] 
-      let myBooks = allBooks
-        .filter(filterMine)
-        .map(syncShelf)
+    let allBooks = alreadyMine ? this.state.myBooks : [...this.state.myBooks, book] 
+    let myBooks = allBooks
+      .filter(filterMine)
+      .map(syncShelf)
 
-      return {
-        myBooks,
-        processing: false
-      }
+    this.setState({
+      myBooks,
+      processing: false
     })
 
     this.addToast('Book updated!')
   }
-  
+
   render() {
     const { myBooks, loading, toasts, processing } = this.state
     return (
       <div className="app">
         <Switch>
             <Route exact path="/" render={() => (
-              <Library books={myBooks} loading={loading} onChangeShelf={this.addBookToShelf.bind(this)} />
+              <Library 
+                books={myBooks} 
+                loading={loading} 
+                onChangeShelf={this.addBookToShelf.bind(this)} />
             )} />
             <Route path="/search" render={() => (
-              <Search books={myBooks} onChangeShelf={this.addBookToShelf.bind(this)} />
+              <Search 
+                processing={processing}
+                books={myBooks} 
+                onChangeShelf={this.addBookToShelf.bind(this)} />
             )} />
         </Switch>
         <Snackbar
@@ -102,7 +106,7 @@ class App extends Component {
         />
         {(processing || loading) && 
           <div className="loading-overlay">
-            <ReactLoading className="loading-element" type="bubbles" color="#fff" delay={0} />
+            <ReactLoading className="loading-element" type="bubbles" color="#999" delay={0} />
           </div>
         }
       </div>

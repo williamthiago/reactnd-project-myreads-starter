@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Debounce } from 'react-throttle'
+import ReactLoading from 'react-loading'
 
 import { SearchPropType } from '../validations/props'
 import * as BooksAPI from '../BooksAPI'
@@ -22,17 +23,18 @@ class Search extends Component {
 
     this.setState({ loading: true })
 
-    let result = await BooksAPI.search(query).then(this.parseSearch.bind(this))
+    let result = await BooksAPI.search(query)
 
     this.setState({ result, loading: false })
   }
 
-  parseSearch(result) {
-    result = (result instanceof Array) ? result : []
+  parseSearchResult() {
     const { books } = this.props
+    let { result = [] } = this.state
 
     return result.map(resultBook => {
       let bookInMyBooks = books.find(book => book.id === resultBook.id)
+
       return {
         ...resultBook,
         shelf: bookInMyBooks ? bookInMyBooks.shelf : 'none'
@@ -41,8 +43,10 @@ class Search extends Component {
   }
 
   render() {
-    const { result: books, query, loading } = this.state
-    const { onChangeShelf } = this.props
+    const { query, loading } = this.state
+    const { onChangeShelf, processing } = this.props
+
+    let books = this.parseSearchResult()
 
     return (
       <div className="search-books">
@@ -66,8 +70,13 @@ class Search extends Component {
           {!loading && query.length > 0 && books.length === 0 && 
             <p>No books found for '{query}'.</p>
           }
-          {!loading && books.length > 0 && 
+          {!loading && books.length > 0 &&
             <Books books={books} onChangeShelf={onChangeShelf} />
+          }
+          {(processing || loading) &&
+            <div className="loading-overlay">
+              <ReactLoading className="loading-element" type="bubbles" color="#999" delay={0} />
+            </div>
           }
         </div>
       </div>

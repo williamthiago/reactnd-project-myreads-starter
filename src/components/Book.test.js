@@ -47,11 +47,12 @@ it('Should render the correct title', () => {
 it('Should render the correct shelf', () => {
   const onChangeShelf = () => {}
   const shelf = "currentlyReading"
+  const shelfText = "Currently Reading"
   const book = {...sampleBooks[0], shelf }
 
   const bookElement = render(<Book book={book} onChangeShelf={onChangeShelf} />)
 
-  expect(bookElement.find('select').val()).toBe(shelf)
+  expect(bookElement.find('.book-tag-label').text()).toBe(shelfText)
 })
 
 it('Should render no-cover image if book has no cover', () => {
@@ -60,7 +61,6 @@ it('Should render no-cover image if book has no cover', () => {
   const book = {...sampleBooks[0], imageLinks }
 
   const bookElement = mount(<Book book={book} onChangeShelf={onChangeShelf} />)
-  // expect().toBe(shelf)
 })
 
 it('Should emit changes when new shelf is selected', () => {
@@ -68,7 +68,8 @@ it('Should emit changes when new shelf is selected', () => {
   const book = sampleBooks[0]
   const bookElement = mount(<Book book={book} onChangeShelf={onChangeShelf} />)
 
-  bookElement.find('select').simulate('change')
+  bookElement.find('.book-options-toggle').simulate('click')
+  bookElement.find('span.tag.read').simulate('click')
 
   expect(onChangeShelf).toHaveBeenCalledTimes(1)
 })

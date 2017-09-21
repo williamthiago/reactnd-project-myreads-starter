@@ -63,3 +63,4 @@ The following requirements were not required, but were added to the project:
 - [x] Tests (partly)
 - [x] Empty states
 - [x] Loading
+- [x] Style improvements (tag)
