@@ -33,7 +33,7 @@ class Search extends Component {
     const { books } = this.props
     let { result = [] } = this.state
 
-    return result.map(resultBook => {
+    return (result.items || result).map(resultBook => {
       let bookInMyBooks = books.find(book => book.id === resultBook.id)
 
       return {
