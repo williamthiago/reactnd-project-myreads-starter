@@ -106,7 +106,7 @@ class App extends Component {
         />
         {(processing || loading) && 
           <div className="loading-overlay">
-            <ReactLoading className="loading-element" type="bubbles" color="#999" delay={0} />
+            <ReactLoading className="loading-element" type="bubbles" color="#746994" delay={0} />
           </div>
         }
       </div>
