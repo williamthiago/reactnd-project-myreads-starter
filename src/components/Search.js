@@ -6,6 +6,7 @@ import ReactLoading from 'react-loading'
 import { SearchPropType } from '../validations/props'
 import * as BooksAPI from '../BooksAPI'
 import Books from './Books'
+import BookPlaceholders from './BookPlaceholders'
 
 class Search extends Component {
   state = {
@@ -65,7 +66,7 @@ class Search extends Component {
         </div>
         <div className="search-books-results">
           {loading && 
-            <p>Loading...</p>
+            <BookPlaceholders count={14} />
           }
           {!loading && query.length > 0 && books.length === 0 && 
             <p>No books found for '{query}'.</p>

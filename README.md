@@ -57,10 +57,11 @@ The following requirements were not required, but were added to the project:
 - [x] Continuous Delivery to Github Pages
 - [x] PropTypes
 - [x] Image size detection
-- [x] No image replacement
+- [x] No-image replacement
 - [x] Code linter
 - [x] Toast notifications
 - [x] Tests (partly)
 - [x] Empty states
 - [x] Loading
-- [x] Style improvements (tag)
+- [x] Content Placeholder (shimmed effect)
+- [x] Style improvements (tag, tag selector)

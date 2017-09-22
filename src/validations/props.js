@@ -40,3 +40,7 @@ export const ShelfPropType = {
   books: PropTypes.arrayOf(bookPropType).isRequired,
   onChangeShelf: PropTypes.func.isRequired
 }
+
+export const BookPlaceholdersPropType = {
+  showTitle: PropTypes.bool
+}

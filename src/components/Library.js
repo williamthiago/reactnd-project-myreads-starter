@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { LibraryPropType } from '../validations/props'
 import Shelf from './Shelf'
 import shelfType from '../enums/shelfType'
+import BookPlaceholders from './BookPlaceholders'
 
 const Library = ({ books, loading, onChangeShelf }) => {
   const shelves = Object.keys(shelfType)
@@ -22,7 +23,7 @@ const Library = ({ books, loading, onChangeShelf }) => {
       <div className="list-books-content">
         <div>
           {loading && 
-            <p>Loading...</p>
+            <BookPlaceholders showTitle={true} />
           }
           {!loading && shelves.map(shelf => (
             <Shelf 
