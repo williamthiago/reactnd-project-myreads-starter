@@ -380,3 +380,16 @@ html, body, .app {
   font-size: 24px;
   color: #999;
 }
+
+.search-books-results-empty {
+  text-align: center;
+}
+
+.search-books-results-empty img {
+  margin: 20px;
+}
+
+.search-books-results-empty p {
+  font-size: 24px;
+  color: #999;
+}

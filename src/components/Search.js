@@ -7,6 +7,7 @@ import { SearchPropType } from '../validations/props'
 import * as BooksAPI from '../BooksAPI'
 import Books from './Books'
 import BookPlaceholders from './BookPlaceholders'
+import noResult from '../icons/no-result.png'
 
 class Search extends Component {
   state = {
@@ -69,7 +70,10 @@ class Search extends Component {
             <BookPlaceholders count={14} />
           }
           {!loading && query.length > 0 && books.length === 0 && 
-            <p>No books found for '{query}'.</p>
+            <div className="search-books-results-empty">
+              <img src={noResult} alt="" />
+              <p>Oops... There are no books found for <strong>"{query}"</strong>!</p>
+            </div>
           }
           {!loading && books.length > 0 &&
             <Books books={books} onChangeShelf={onChangeShelf} />
