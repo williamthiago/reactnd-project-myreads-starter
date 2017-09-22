@@ -37,11 +37,9 @@ class BookCover extends Component {
 
   render() {
     let { image, width, height } = this.state
-    let backgroundSize = 'cover'
     let backgroundImage = `url(${image})`
 
     const coverStyle = {
-      backgroundSize,
       backgroundImage,
       height,
       width,

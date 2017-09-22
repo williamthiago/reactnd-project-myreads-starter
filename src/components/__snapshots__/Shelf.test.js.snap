@@ -12,16 +12,16 @@ exports[`Renders Shelf without books 1`] = `
   <div
     className="bookshelf-books"
   >
-    <div>
+    <div
+      className="bookshelf-empty"
+    >
+      <img
+        alt=""
+        src="no-books.png"
+      />
       <p>
-        This bookshelf has no books yet!
+        Oops... There are no books!
       </p>
-      <Link
-        replace={false}
-        to="/search"
-      >
-        Go search for more books!
-      </Link>
     </div>
   </div>
 </div>
