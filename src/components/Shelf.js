@@ -1,17 +1,17 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 import { ShelfPropType } from '../validations/props'
 import Books from './Books'
+import noBooks from '../icons/no-books.png'
 
 const Shelf = ({title, books, onChangeShelf}) => (
   <div className="bookshelf">
     <h2 className="bookshelf-title">{title}</h2>
     <div className="bookshelf-books">
       {books.length === 0 && (
-        <div>
-          <p>This bookshelf has no books yet!</p>
-          <Link to="/search">Go search for more books!</Link>
+        <div className="bookshelf-empty">
+          <img src={noBooks} alt="" />
+          <p>Oops... There are no books!</p>
         </div>
       )}
       {books.length > 0 && (
