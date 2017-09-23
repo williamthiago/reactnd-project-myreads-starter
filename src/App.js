@@ -51,33 +51,14 @@ class App extends Component {
 
   async addBookToShelf(book, shelf) {
     this.setState({ processing: true })
-    
-    const currentShelvesState = await BooksAPI.update(book, shelf).catch(this.throwSyncError())
-
-    const syncedShelves = Object.keys(currentShelvesState).reduce((bookIds, key) => {
-      return currentShelvesState[key].reduce((bookIds, id) => {
-        bookIds[id] = key
-        return bookIds
-      }, bookIds)
-    }, {})
-
-    const alreadyMine = !!this.state.myBooks.find(myBook => myBook.id === book.id)
-    const filterMine = (book) => Object.keys(syncedShelves).includes(book.id)
-    const syncShelf = (book) => ({
-      ...book,
-      shelf: syncedShelves[book.id]
-    })
-
-    let allBooks = alreadyMine ? this.state.myBooks : [...this.state.myBooks, book] 
-    let myBooks = allBooks
-      .filter(filterMine)
-      .map(syncShelf)
-
-    this.setState({
-      myBooks,
-      processing: false
-    })
-
+    await BooksAPI.update(book, shelf).catch(this.throwSyncError())
+  
+    book.shelf = shelf
+    this.setState(prevState => ({
+        myBooks: prevState.myBooks.filter(myBook => myBook.id !== book.id).concat(book),
+        processing: false
+    }))
+  
     this.addToast('Book updated!')
   }
 
