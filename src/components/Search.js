@@ -20,6 +20,7 @@ class Search extends Component {
     this.setState({ query })
 
     if (!query) {
+      this.setState({ result: [] })
       return
     }
 
